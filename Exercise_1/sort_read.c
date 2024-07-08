@@ -4,7 +4,9 @@ Take the data from both the inputs and sort in ascending order */
 #include <stdio.h>
 #include <stdlib.h>
 
-void sort(int total_size, int merged_array[]){
+
+
+void sort(int total_size, __u_int merged_array[]){
 
     //for sorting the array
     for(int i=0; i<total_size; i++){
@@ -18,7 +20,7 @@ void sort(int total_size, int merged_array[]){
     }
 }
 
-void mirror(int mirror_array[],int sorted_array[], int total_size){
+void mirror(__u_int mirror_array[],__u_int sorted_array[], int total_size){
 
     for(int i=0; i<total_size; i++){
         long int rev_val = 0;
@@ -36,10 +38,10 @@ void mirror(int mirror_array[],int sorted_array[], int total_size){
 
 int main() {
     
-    int array[] = {0x6BAF1000, 0x19F45200, 0x71802300, 0x82424000, 0x35601000};
+    __u_int array[] = {0x6BAF1000, 0x5,  0x19F45200, 0x71802300, 0x82424000, 0x35601000, 0x1};
     int array_size = sizeof(array)/sizeof(array[0]);
-    int mirror_array[10];
-    int sorted_array[100];
+    __u_int mirror_array[10];
+    __u_int sorted_array[100];
 
     // File input
     FILE *fp = fopen("numbers.txt", "r");
@@ -49,7 +51,7 @@ int main() {
     }
 
     // Read hexadecimal values from file into temp array
-    int file_value[10];
+    __u_int file_value[10];
     int index = 0;
 
     // Read hexadecimal values from file and add to char array
@@ -64,7 +66,7 @@ int main() {
 
     // Merging arrays (array[] and file_value[]) into merged_array
     int total_size = array_size + index;
-    int merged_array[20];
+    __u_int merged_array[20];
 
     // Copy array[] elements to merged_array[]
     for (int i = 0; i < array_size; i++) {
@@ -103,7 +105,7 @@ int main() {
      // array after sorting in decimal
     printf("After sorting array in decimal:\n");
     for (int i = 0; i < total_size; i++) {
-        printf("%d\t", sorted_array[i]);
+        printf("%u\t", sorted_array[i]);
     }
 
 /*Question2: Use O/p of Q1 and Mirror the number, do same for all the numbers and print
